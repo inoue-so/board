@@ -1,2 +1,5 @@
-<h1>Boards#new</h1>
-<p>Find me in app/views/boards/new.html.erb</p>
+<%= form_for @board do |f| %>
+   <%= f.text_field :name, placeholder: 'board name' %>
+   <%= f.submit %>
+ <% end %> 
+
