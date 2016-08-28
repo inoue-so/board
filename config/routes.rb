@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
-  get 'boards/index'
-
-  get 'boards/new'
-
-  get 'boards/create'
-
-  get 'boards/show'
-
-  get 'boards/edit'
-
-  get 'boards/update'
-
-  get 'boards/destroy'
+  
+  resources :boards
 
   devise_for :users
   get 'home/index'
