@@ -8,12 +8,14 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new params[:board]
+     attr = params.require(:board).permit(:name, :login)
+     @board = Board.new(attr)
      @board.save
      redirect_to board_path(@board)
   end
 
   def show
+    @board = Board.find(params[:id])
   end
 
   def edit
@@ -24,4 +26,5 @@ class BoardsController < ApplicationController
 
   def destroy
   end
+
 end
