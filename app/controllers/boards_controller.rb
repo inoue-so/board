@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-     attr = params.require(:board).permit(:name, :login)
+     attr = params.require(:board).permit(:name)
      @board = Board.new(attr)
      @board.save
      redirect_to board_path(@board)
@@ -25,6 +25,9 @@ class BoardsController < ApplicationController
   end
 
   def update
+    @board = Board.find(params[:id])
+     @board.update_attributes(params_board)
+     redirect_to board_path(@board)
   end
 
   def destroy
